@@ -147,7 +147,7 @@ section {
     position: relative;
     width: 100%;
     height: 100%; /* 填滿父容器 .portfolio-item 的 500px */
-    background: url('../img/type.png') center/cover no-repeat;
+    background: url('../img/tape.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center; /* 垂直置中 */
