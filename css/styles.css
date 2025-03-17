@@ -1,0 +1,337 @@
+/*======================================================================
+   4. 主要容器 (Container)
+======================================================================*/
+.container {
+    max-width: 1000px; /* 限制最大寬度 */
+    margin: 0 auto;    /* 讓區塊置中 */
+    padding: 0 5%;     /* 左右預留5%的空間 */
+}
+
+
+/*======================================================================
+   5. Header 與導覽列
+======================================================================*/
+header {
+    padding: 1rem 0;
+}
+
+/* 主要容器，控制左邊 Logo 與右邊導覽列對齊方式 */
+.header-container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 1rem;
+
+/* Flex 佈局，讓 Logo 與導覽列左右排列 */
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+/* Logo 區塊：圖片置於左上角 */
+.logo img, .header-title img {
+height: 40px; /* 可自行調整高度 */
+width: auto;
+display: block;
+}
+
+.nav-links {
+    background-color: #2c2e38;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'TaipeiSansTC', sans-serif;
+    font-weight: 400; /* 使用 Bold 字重 */
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/*======================================================================
+   6. Banner 區塊
+======================================================================*/
+.banner {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto; /* 讓整個 .banner 區塊置中 */
+    background-color: #0d0d0d;
+}
+
+.banner img {
+    width: 70%;
+    height: auto;         /* 保持圖片等比例縮放 */
+    object-fit: cover;    /* 若圖片比例不符合容器，可視需求改用 cover/contain */
+    display: block;       
+    margin: 0 auto;       /* 讓圖片在父容器中水平置中 */
+    margin-top: 10px;
+    margin-bottom: 100px;
+}
+
+
+/*======================================================================
+   7. 主要內容區塊 (Sections)
+======================================================================*/
+section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+
+/*======================================================================
+   8. 作品集區塊 (Portfolio)
+======================================================================*/
+.portfolio-section {
+    height: 2300px;
+}
+
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top:50px;
+}
+
+/* 讓 portfolio, skills 區塊有左右間距 */
+.portfolio-section,
+.skills-section {
+    margin-top: 10px;
+    padding: 0 ;
+
+}
+
+.portfolio-section h2,
+.skills-section h2 {
+    font-family: "Lato", sans-serif; 
+    font-weight: 300; 
+    padding-top: 0rem;
+    font-size: 1.5rem;
+    margin-bottom: 0rem;
+    letter-spacing: normal;
+    
+}
+
+
+
+/* 作品集卡片 */
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    height: 500px; /* 作品區塊的高度 */
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+    z-index: 1;
+    cursor: url('../pic/view_detail.png'), pointer;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* 預設內容區 */
+.work-default-content {
+    position: relative;
+    width: 100%;
+    height: 100%; /* 填滿父容器 .portfolio-item 的 500px */
+    background: url('../pic/type.png') center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中 */
+    align-items: center;     /* 水平置中 */
+    
+}
+
+/* 文字覆蓋層 */
+.text-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* 同樣填滿 .work-default-content 的高度 */
+    background-color: rgba(40, 43, 46, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 垂直置中 */
+    align-items: center;     /* 水平置中 */
+    color: #f5f5f5de;
+    text-align: center;
+}
+.text-overlay h3 {
+    font-family: "SweiSpringSugarCJKtc", sans-serif; 
+    font-weight: 400;
+    font-size: 16px;
+   
+}
+.text-overlay p {
+    font-family: "SweiSpringSugarCJKtc", sans-serif; 
+    font-weight: 200;
+    font-size: 12px;
+}
+
+/* 滑鼠懸停內容區 */
+.work-hover-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    
+}
+#dreamland {
+    background: url('../gif/dreamland.gif') center/cover no-repeat;
+}
+#tv {
+    background: url('../gif/TV.gif') center/cover no-repeat;
+}
+#pillow {
+    background: url('../gif/project_pillow.gif') center/cover no-repeat;
+}
+#Interconnected{
+    background: url('../gif/Interconnected.gif') center/cover no-repeat;
+}
+#templerealm{
+    background: url('../gif/temple.gif') center/cover no-repeat;
+}
+#exposure_sim{
+    background: url('../gif/exposure_sim.gif') center/cover no-repeat;
+}
+#Virtual_Museum{
+    background: url('../gif/virtual_museum.png') center/cover no-repeat;
+    cursor: url('../pic/coming_soon.png'), pointer;
+}
+#BOX{
+    background: url('../gif/box.png') center/cover no-repeat;
+    cursor: url('../pic/coming_soon.png'), pointer;
+}
+.work-hover-content h3 {
+    font-family: "SweiSpringSugarCJKtc", sans-serif; 
+    font-weight: 300;
+    font-size: 10pt;
+}
+.work-hover-content p {
+    font-size: 8.5pt;
+}
+.portfolio-item:hover .work-hover-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.portfolio-item:hover .work-default-content {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+/* 技術標籤 */
+.tech-tags {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tech-tags span {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 6pt;
+}
+
+
+/*======================================================================
+   9. 技能區塊 (Skills)
+======================================================================*/
+/* 技能區塊 (Skills) 容器 */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top:50px;
+}
+.skill-category {
+    text-align: center; /* 讓標題和技能卡都置中 */
+    margin: 0 auto;
+    margin-bottom: 100px;
+}
+
+/* 技能分類標題 */
+.skill-category h3 {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+/* 技能卡 (skill-box) */
+.skill-box {
+    max-width: 200px;
+    border-radius: 8px;
+    
+
+    font-family: "SweiSpringSugarCJKtc", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 100;
+    letter-spacing: 0.05em;
+
+    transition: transform 0.3s ease;
+    margin: 0.5rem auto; /* 水平置中 */
+    text-align: center;  /* 文字置中 */
+}
+
+/* Hover 效果 */
+.skill-box:hover {
+    font-weight: 200;
+    transform: scale(1.1);
+}
+
+
+
+/*======================================================================
+   10. 動畫效果 (Animations)
+======================================================================*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 滾動淡入效果 */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease-in-out;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+

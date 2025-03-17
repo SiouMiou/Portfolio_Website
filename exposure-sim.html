@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exposure Sim</title>
+  <!-- 載入基本 CSS 及專用 CSS (可沿用 interconnected.css) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/exposure-sim.css">
+</head>
+<body>
+  <!-- 第一區塊：影片與四角資訊 -->
+  <section class="work fade-in-element">
+    <!-- 可替換成影片或靜態圖，依實際素材而定 -->
+    <video class="work-image" src="pic/Exposure/Exposure_Sim_resize.mp4" muted loop autoplay></video>
+    
+    <!-- 左上：作品名稱 -->
+    <h2 class="work-title">Exposure Sim</h2>
+    <!-- 左下：作品描述 -->
+    <p class="work-desc">
+      
+      智慧型手機尚未出現時，人類都活在現實裡。如果說元宇宙是讓人類活在虛擬中，
+      那麼現今的世界正處於虛實交界的階段，我們正朝著虛擬世界前進。
+      在虛擬世界中，攝影也許只是一種截圖。我盡可能模擬真實的相機曝光，
+      讓使用者想像在元宇宙中攝影。當他們費盡心思調整好曝光參數後，按下快門，
+      得到的終究只是一張截圖。進而思考「也許在虛擬世界中的行為，本質上來說就是一種虛無」。
+    </p>
+    <!-- 右上：作品年分 -->
+    <span class="work-year">2023</span>
+    <!-- 右下：作品關鍵字（可自行調整） -->
+    <div class="work-tags">
+      <span>Unity</span>
+      <span>Blender</span>
+    </div>
+  </section>
+
+  <!-- 第三區塊：圖片區塊，依附圖示例分兩行 -->
+  <div class="gallery-container"> 
+    <section class="gallery-section fade-in-element two-images">
+      <div class="grid-item">
+        <img src="pic/exposure/Exposure_Sim_img1.png" alt="Screenshot 1">
+      </div>
+      <div class="grid-item">
+        <img src="pic/exposure/Exposure_Sim_img2.png"" alt="Screenshot 2">
+      </div>
+    </section>
+    
+    <!-- 區塊二：一張圖片 -->
+    <section class="gallery-section fade-in-element one-image">
+      <div class="grid-item">
+        <img src="pic/exposure/Exposure_Sim_img3.png"" alt="Shutter Speed: 8">
+      </div>
+    </section>
+  </div>
+
+  <!-- 頁尾 -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Sioumiou's Portfolio. All rights reserved.</p>
+  </footer>
+
+  <!-- 回首頁按鈕 -->
+  <div class="center-home-container" id="back-home-container">
+    <a href="index.html#portfolio" class="center-home-icon" data-tooltip="Back to Home">
+      <img src="pic/back.png" alt="Home Icon">
+    </a>
+  </div>
+
+  <!-- JavaScript：淡入效果與返回按鈕邏輯 -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in-element');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            obs.unobserve(entry.target);
+          }
+        });
+      });
+      fadeElements.forEach(el => observer.observe(el));
+
+      const backHomeContainer = document.getElementById('back-home-container');
+      function toggleBackHomeButton() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+          backHomeContainer.classList.add('show');
+        } else {
+          backHomeContainer.classList.remove('show');
+        }
+      }
+      window.addEventListener('scroll', toggleBackHomeButton);
+      toggleBackHomeButton();
+    });
+  </script>
+</body>
+</html>

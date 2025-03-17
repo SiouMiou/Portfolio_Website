@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>俊賢電視</title>
+    <!-- 載入你的 CSS -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/tv.css">
+</head>
+<body>
+    <!-- 頂部區塊：使用影片取代原先 banner.gif -->
+    <section class="work fade-in-element">
+        <!-- 自動播放、循環、靜音的影片 -->
+        <video class="work-image" src="pic/tv/Chou TV.mp4" autoplay loop muted></video>
+
+        <!-- 四角文字：左上(作品名稱)、左下(作品介紹)、右上(年分)、右下(關鍵字) -->
+        <h2 class="work-title">俊賢電視</h2>
+        <p class="work-desc">
+            將日常影像數位化並反覆放映，同一張臉在各種光影與螢幕間不斷地被凝視、重新演繹，
+            徵在數位時代中不斷檢視、拼貼與想像個人形象的過程。
+        </p>
+        <span class="work-year">2023</span>
+        <div class="work-tags">
+            <span>Processing</span>
+            <span>Media Visual Design</span>
+            <span>3D Modeling</span>
+            <span>Unity</span>
+            <span>Blender</span>
+        </div>
+    </section>
+
+    <!-- 三張平行並排的 GIF -->
+    <section class="grid-section fade-in-element">
+        <div class="grid-container">
+          <!-- 第一列：三張 GIF -->
+          <div class="grid-item">
+            <img src="pic/tv/face.gif" alt="GIF 1">
+          </div>
+          <div class="grid-item">
+            <img src="pic/tv/face_2.gif" alt="GIF 2">
+          </div>
+          <div class="grid-item">
+            <img src="pic/tv/face_3.gif" alt="GIF 3">
+          </div>
+        </div>
+    </section>
+
+   
+
+    <!-- 流程圖區塊 -->
+    <section class="poster-section fade-in-element">
+        <img src="pic/tv/poster.png" alt="Poster">
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="fade-in">
+        <p>&copy; 2025 Sioumiou's Portfolio. All rights reserved.</p>
+    </footer>
+
+    <!-- 回首頁按鈕（捲動到底部才顯示） -->
+    <div class="center-home-container" id="back-home-container">
+        <a href="index.html#portfolio" class="center-home-icon" data-tooltip="Back to Home">
+          <!-- 這裡改用自己的圖檔，請確保路徑正確 -->
+          <img src="pic/back.png" alt="Home Icon">
+        </a>
+    </div>
+      
+    <!-- Vimeo API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <!-- 主要動畫邏輯：Intersection Observer + 到底部才顯示返回按鈕 -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        /* -------------------------------
+           一、淡入效果：IntersectionObserver
+           ------------------------------- */
+        const fadeElements = document.querySelectorAll('.fade-in-element');
+        
+        // 建立 IntersectionObserver
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // 進入可視範圍 → 加入 .show
+              entry.target.classList.add('show');
+              // 觀察一次後就不再重複觸發
+              obs.unobserve(entry.target);
+            }
+          });
+        });
+    
+        // 讓每個帶 .fade-in-element 的元素都被觀察
+        fadeElements.forEach(el => observer.observe(el));
+    
+        /* -------------------------------
+           二、返回按鈕：捲動到底部才顯示
+           ------------------------------- */
+        const backHomeContainer = document.getElementById('back-home-container');
+    
+        function toggleBackHomeButton() {
+          // window.innerHeight: 視窗高度
+          // window.scrollY: 已捲動的距離
+          // document.body.offsetHeight: 整頁高度 (可用 document.documentElement.scrollHeight)
+          // 若 (視窗高度 + 捲動距離) >= (頁面總高度 - 10px)，視為到底部
+          if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+            backHomeContainer.classList.add('show');
+          } else {
+            backHomeContainer.classList.remove('show');
+          }
+        }
+    
+        // 監聽捲動事件，動態顯示/隱藏按鈕
+        window.addEventListener('scroll', toggleBackHomeButton);
+    
+        // 初次載入時也執行一次，避免頁面過短或一開始就已在底部
+        toggleBackHomeButton();
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+/*======================================================================
+   1. 字型設定 (Font Face)
+======================================================================*/
+@font-face {
+    font-family: 'TaipeiSansTC';
+    src: url('../font/TaipeiSansTCBeta-Regular.ttf') format('truetype');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TaipeiSansTC';
+    src: url('../font/TaipeiSansTCBeta-Bold.ttf') format('truetype');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TaipeiSansTC';
+    src: url('../font/TaipeiSansTCBeta-Light.ttf') format('truetype');
+    font-weight: 300; /* Light */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "SweiSpringSugarCJKtc";
+    src: url("../font/SweiSpringSugarCJKtc-ExtraLight.ttf") format("truetype");
+    font-weight: 200;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SweiSpringSugarCJKtc";
+    src: url("../font/SweiSpringSugarCJKtc-Black.ttf") format("truetype");
+    font-weight: 800;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SweiSpringSugarCJKtc";
+    src: url("../font/SweiSpringSugarCJKtc-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: "SweiSpringSugarCJKtc";
+    src: url("../font/SweiSpringSugarCJKtc-Medium.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+/* Lato Hairline -> 一般視為 100 或 200，這裡設定為 100 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Hairline.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+
+/* Lato Thin -> 通常設定為 200 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Thin.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+/* Lato Light -> 通常設定為 300 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+/* Lato Regular -> 400 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Lato Medium -> 500 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/* Lato Bold -> 700 */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Lato Heavy -> 常見設為 900 (Black) */
+@font-face {
+    font-family: 'Lato';
+    src: url('../font/lato/Lato-Heavy.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+/*======================================================================
+   2. 全域重設 (Global Reset)
+======================================================================*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*======================================================================
+   3. 基本樣式 (Base Styles)
+======================================================================*/
+body {
+    background: #0d0d0d;
+    line-height: 1.4;
+    color: #f5f5f5de;
+    font-family: "SweiSpringSugarCJKtc", Arial, sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+}
+
+h2 {
+    font-family: "SweiSpringSugarCJKtc", sans-serif; 
+    font-weight: 400; 
+}
+footer {
+    color: #d9d9d97c;
+    text-align: center;
+    padding: 1rem 0;
+    font-family: "Noto Sans TC", sans-serif;
+    font-weight: 300;
+    font-size: 8pt;
+}
+
+/* 固定在螢幕正中央的容器 */
+.center-home-container {
+    position: fixed;
+    bottom: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999; /* 確保在最上層 */
+}
+
+/* 連結本身：維持 hover 動效與動畫設定 */
+.center-home-icon {
+    display: inline-block;
+    text-decoration: none; /* 移除超連結預設底線 */
+    transition: transform 0.3s ease;
+    animation: float 5s ease-in-out infinite;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.center-home-icon::after {
+    content: attr(data-tooltip);       /* 取得 data-tooltip 的文字 */
+    position: absolute;
+    top: 110%;                      /* 往上放在按鈕上方 */
+    left: 50%;                         /* 水平置中 */
+    transform: translateX(-50%) translateY(0);
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.5rem;
+    white-space: nowrap;               /* 文字不換行 */
+    opacity: 0;                        /* 預設不可見 */
+    visibility: hidden;                /* 預設不可見 */
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;              /* 滑鼠不會作用在提示上 */
+}
+.center-home-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+/* 圖片大小，可依需求自行調整 */
+.center-home-icon img {
+    width: 30px;  /* 例如 60px，可自行改大或改小 */
+    height: auto; 
+    display: block;
+    filter: brightness(0.8);
+    transform: scale(0.8);
+}
+
+/* 滑鼠懸停時放大 */
+.center-home-icon:hover {
+    transform: scale(1.2);
+    filter: brightness(2.5);
+}
+
+#back-home-container {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  /* 顯示時 */
+#back-home-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+  /* 浮動動畫：上下輕微移動 */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px); /* 浮起距離可依需求調整 */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
+/*======================================================================
+   4. 網格系統 (Grid System)
+
+  
+  /* 浮動動畫：上下輕微移動 */
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px); /* 浮起高度可調 */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+
+  /* --------------------------
+   回首頁按鈕 (底部)
+----------------------------- */
+#back-home-container {
+    position: fixed;
+    bottom: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  #back-home-container.show {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .center-home-icon {
+    display: inline-block;
+    text-decoration: none;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    position: relative;
+  }
+  
+  .center-home-icon img {
+    width: 25px;
+    height: auto;
+    display: block;
+    filter: brightness(0.3);
+    transform: scale(0.8);
+  }
+  
+  .center-home-icon:hover {
+    transform: scale(1.2);
+    filter: brightness(2.5);
+  }
+  
+  /* 提示字 (tooltip) */
+  .center-home-icon::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
+    font-size: 0.5rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
+  }
+  
+  .center-home-icon:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -5px);
+  }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>廟境</title>
+  <!-- 載入基本 CSS、以及你的通用樣式 (interconnected.css) -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/temple-realm.css">
+</head>
+<body>
+  <!-- 第一區塊：影片與四角資訊 -->
+  <section class="work fade-in-element">
+    <!-- 若有影片可替換下列 src，若無可改成圖片或移除 video -->
+    <video class="work-image" src="pic/Temple Realm/virtual_worship.mp4" muted loop autoplay></video>
+    
+    <!-- 左上：作品名稱 -->
+    <h2 class="work-title">廟境</h2>
+    <!-- 左下：作品描述 -->
+    <p class="work-desc">
+      應用 VR 進行虛擬祭拜，祭祀這項文化對臺灣來說是珍貴的資產，
+      隨著時代變遷，許多臺灣傳統文化正在式微，因此，如何透過科技保存這些重要的資產，
+      便成為本專題實現的目標。
+    </p>
+    <!-- 右上：作品年分 -->
+    <span class="work-year">2021</span>
+    <!-- 右下：作品關鍵字 -->
+    <div class="work-tags">
+      <span>VR</span>
+      <span>Unity</span>
+    </div>
+  </section>
+
+
+  <!-- 負責項目區塊 -->
+  <section class="responsibility-section fade-in-element">
+    <div class="responsibility-container">
+      <p>此專案與他人合作<br>負責項目：3D 場景建置、Unity腳本撰寫</p>
+    </div>
+  </section>
+ 
+  <!-- 頁尾 -->
+  <footer class="fade-in">
+    <p>&copy; 2025 Sioumiou's Portfolio. All rights reserved.</p>
+  </footer>
+
+  <!-- 回首頁按鈕 -->
+  <div class="center-home-container" id="back-home-container">
+    <a href="index.html#portfolio" class="center-home-icon" data-tooltip="Back to Home">
+      <img src="pic/back.png" alt="Home Icon">
+    </a>
+  </div>
+
+  <!-- JavaScript：淡入效果與返回按鈕邏輯 (可直接沿用) -->
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const fadeElements = document.querySelectorAll('.fade-in-element');
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            obs.unobserve(entry.target);
+          }
+        });
+      });
+      fadeElements.forEach(el => observer.observe(el));
+
+      const backHomeContainer = document.getElementById('back-home-container');
+      function toggleBackHomeButton() {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+          backHomeContainer.classList.add('show');
+        } else {
+          backHomeContainer.classList.remove('show');
+        }
+      }
+      window.addEventListener('scroll', toggleBackHomeButton);
+      toggleBackHomeButton();
+    });
+  </script>
+</body>
+</html>

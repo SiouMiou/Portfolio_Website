@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+          <div class="logo">
+            <img src="pic/logo.png" alt="Logo">
+          </div>
+          <div class="header-title">
+            <img src="pic/logo_2.png" alt="Logo">
+          </div>
+        </div>
+      </header>
+      
+    <!-- 🚀 新的圖片 Banner -->
+    <div class="banner">
+        <img src="pic/banner.png" alt="Banner Image">
+    </div>
+
+    <!-- 添加切換按鈕 -->
+ <!--   <div class="toggle-buttons">
+        <button id="portfolioBtn">Portfolio</button>
+        <button id="cvBtn">CV</button>
+    </div>
+-->
+    <section id="portfolio" class="portfolio-section hidden">
+        <div class="container">
+            <h2>PORFOLIO</h2>
+            <div class="portfolio-grid">
+                <a class="portfolio-item">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>Virtual Meuseum</h3>
+                          <p>Telepresence Museum Based on 3D Scanning for Human Bodies and a Solid Art Sculpture with Hand Gesture Recognition</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="Virtual_Museum">
+                        <h3>Virtual Meuseum</h3>
+                        <p>
+                            本專案已投稿並發表於 IEEE AIxVR 2025，但仍為一項尚未對外公開的進行中研究計畫。
+                        </p>
+                        <div class="tech-tags">
+                            <span>Unity</span>
+                            <span>Virtual Reality</span>
+                            <span>CNN-LSTM</span>
+                            <span>3D Scanning</span>
+                            <span>Interactive</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="portfolio-item">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>The Box</h3>
+                          <p>A Virtual Reality Project</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="BOX">
+                        <h3>The Box</h3>
+                        <p>This is an ongoing project that has not been publicly disclosed yet.</p>
+                        <div class="tech-tags">
+                            <span>Unity</span>
+                            <span>Virtual Reality</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-grid">
+                <a class="portfolio-item"  href="dreamland.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>Dreamland</h3>
+                          <p>Audio visualization with Processing</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="dreamland">
+                        <h3>Dreamland</h3>
+                        <p>腦無時無刻不在處理訊息，即使是在沉睡中，而人因此產生夢境。</p>
+                        <div class="tech-tags">
+                            <span>Processing</span>
+                            <span>Audio Visualization</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="portfolio-item"  href="jun-tv.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>俊賢電視行 </h3>
+                          <p>Multimedia Visual Design</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="tv">
+                        <h3>俊賢電視行</h3>
+                        <p>一間電視行老闆 ­­- 俊賢，決定利用他店裡的電視替他自己以及這間店行銷。</p>
+                        <div class="tech-tags">
+                            <span>Unity</span>
+                            <span>Processing</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-grid">
+                <a class="portfolio-item"  href="projection-pollow.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>The Flowing on the Pillow</h3>
+                          <p>Projection Mapping Project</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="pillow">
+                        <h3>The Flowing on the Pillow</h3>
+                        <p>展現意識流動的樣貌。</p>
+                        <div class="tech-tags">
+                            <span>Processing</span>
+                            <span>Projection Mapping</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="portfolio-item"  href="Interconnected.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>環</h3>
+                          <p>沉浸式劇場</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="Interconnected">
+                        <h3>環</h3>
+                        <p>是瀝青、水泥劃清了人與自然的界線，至今人類似乎不再是大自然的一部分，<br>
+                            但你的小小的舉動，終究會透過某種途徑，對環境產生影響。 
+                        </p>
+                        <div class="tech-tags">
+                            <span>Immersive</span>
+                            <span>Unity</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="portfolio-grid">
+                <a class="portfolio-item"  href="temple-realm.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>廟境</h3>
+                          <p>應用VR進行虛擬祭拜</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="templerealm">
+                        <h3>廟境</h3>
+                        <p>祭祀是臺灣珍貴的文化資產，然而，許多這些資產正在式微。</p>
+                        <div class="tech-tags">
+                            <span>Virtual Reality</span>
+                            <span>Unity</span>
+                        </div>
+                    </div>
+                </a>
+                <a class="portfolio-item"  href="exposure-sim.html">
+                    <div class="work-default-content">
+                        <div class="text-overlay">
+                          <h3>Exposure Sim</h3>
+                          <p>真實的攝影曝光模擬</p>
+                        </div>
+                      </div>
+                    <div class="work-hover-content" id="exposure_sim">
+                        <h3>Exposure Sim</h3>
+                        <p>也許在虛擬世界中的行為，本質上來說就是一種虛無。 
+                        </p>
+                        <div class="tech-tags">
+                            <span>Unity</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+<!--
+    <section id="cv" class="cv-section hidden">
+        <div class="container">
+            <h2>CV</h2>
+            <div class="cv-content">
+                <h3>個人資料</h3>
+                <p>姓名：XXX</p>
+                <p>聯絡方式：XXX</p>
+                <h3>學歷</h3>
+                <p>大學名稱 - 學士學位</p>
+                <p>主修：XXX，畢業年份：20XX</p>
+                <h3>工作經歷</h3>
+                <p>公司名稱 - 工作職位</p>
+                <p>工作內容簡述，描述工作職責與經驗。</p>
+            </div>
+        </div>
+    </section>
+-->
+    <section id="skills" class="skills-section hidden">
+        <div class="container">
+            <h2>SKILLS</h2>
+            <div class="skills-container">
+    
+                <!-- Game Engine / 3D 區塊 -->
+                <div class="skill-category">
+                    <h3>Game Engine / 3D Production</h3>
+                    <div class="skill-box">Unity</div>
+                    <div class="skill-box">Blender</div>
+                </div>
+    
+                <!-- Creative Tools 區塊 -->
+                <div class="skill-category">
+                    <h3>Visual Programming</h3>
+                    <div class="skill-box">TouchDesigner</div>
+                    <div class="skill-box">Processing</div>
+                </div>
+    
+                <!-- Coding 區塊 -->
+                <div class="skill-category">
+                    <h3>Coding</h3>
+                    <div class="skill-box">Python</div>
+                    <div class="skill-box">Java</div>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+ 
+    
+    <footer class="fade-in">
+        <p>&copy; 2025 Sioumiou's Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const hiddenElements = document.querySelectorAll(".hidden");
+        
+        function showOnScroll() {
+            hiddenElements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    el.classList.add("show");
+                }
+            });
+        }
+        
+        window.addEventListener("scroll", showOnScroll);
+        showOnScroll();
+
+        // 切換 Portfolio 和 CV
+        const portfolioBtn = document.getElementById("portfolioBtn");
+        const cvBtn = document.getElementById("cvBtn");
+        const portfolioSection = document.getElementById("portfolio");
+        const cvSection = document.getElementById("cv");
+
+        portfolioBtn.addEventListener("click", function() {
+            portfolioSection.classList.remove("hidden");
+            cvSection.classList.add("hidden");
+        });
+
+        cvBtn.addEventListener("click", function() {
+            cvSection.classList.remove("hidden");
+            portfolioSection.classList.add("hidden");
+        });
+    });
+
+    </script>
+</body>
+</html>

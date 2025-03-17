@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamland</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/dreamland.css">
+</head>
+<body>
+    <!-- 新增 fade-in-element 類別 -->
+    <section class="work fade-in-element">
+         <img src="pic/dreamland/banner.gif" alt="Center Image" class="work-image">
+        <h2 class="work-title">Dreamland</h2>
+        <p class="work-desc">
+          沉睡中，在無數條神經交互作用下，使夢境產生畫面。<br>
+          本作品將我想像中腦海裡拼湊記憶或畫面的過程具象化，<br>
+          透過許多點(細胞)連成線(神經)，最後匯聚成面(畫面)後用Processing撰寫程式呈現出來。  
+        </p>
+        <span class="work-year">2023</span>
+        <div class="work-tags">
+          <span>Processing</span>
+          <span>Audio Visualization</span>
+          <span>Particle System</span>
+        </div>
+    </section>
+
+    <!-- 新增 fade-in-element 類別 -->
+    <section class="grid-section fade-in-element">
+        <div class="grid-container">
+          <!-- 第一列：三張圖片 -->
+          <div>
+            <img src="pic/dreamland/gif_1.gif" alt="Image 1">
+          </div>
+          <div>
+            <img src="pic/dreamland/gif_3.gif" alt="Image 2">
+          </div>
+          <div>
+            <img src="pic/dreamland/gif_2.gif" alt="Image 3">
+          </div>
+          
+          <!-- 第二列：對應文字 -->
+          <div>
+            <p>Vector Field</p>
+          </div>
+          <div>
+            <p>Light Range</p>
+          </div>
+          <div>
+            <p>Particle System</p>
+          </div>
+        </div>
+    </section>
+
+    <!-- 新增 fade-in-element 類別 -->
+    <section class="flowchart-section fade-in-element">
+        <img src="pic/dreamland/flowchart_2.png" alt="流程圖">
+    </section>
+
+    <!-- 新增 fade-in-element 類別 -->
+    <div class="video-container fade-in-element">
+        <iframe
+          src="https://player.vimeo.com/video/1057656913?h=2e86f42df9&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+          title="Audio visualization with Processing">
+        </iframe>
+    </div>
+    
+    <!-- footer 若想也加淡入，可自行加入 fade-in-element -->
+    <footer class="fade-in">
+        <p>&copy; 2025 Sioumiou's Portfolio. All rights reserved.</p>
+    </footer>
+    <div class="center-home-container" id="back-home-container">
+        <a href="index.html#portfolio" class="center-home-icon" data-tooltip="Back to Home">
+          <!-- 這裡改用自己的圖檔，請確保路徑正確 -->
+          <img src="pic/back.png" alt="Home Icon">
+        </a>
+    </div>
+      
+    <!-- Vimeo API -->
+    <script src="https://player.vimeo.com/api/player.js"></script>
+
+    <!-- 主要動畫邏輯：Intersection Observer -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          /* -------------------------------
+             一、淡入效果：IntersectionObserver
+             ------------------------------- */
+          const fadeElements = document.querySelectorAll('.fade-in-element');
+          
+          // 建立 IntersectionObserver
+          const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // 進入可視範圍 → 加入 .show
+                entry.target.classList.add('show');
+                // 觀察一次後就不再重複觸發
+                obs.unobserve(entry.target);
+              }
+            });
+          });
+      
+          // 讓每個帶 .fade-in-element 的元素都被觀察
+          fadeElements.forEach(el => observer.observe(el));
+      
+          /* -------------------------------
+             二、返回按鈕：捲動到底部才顯示
+             ------------------------------- */
+          const backHomeContainer = document.getElementById('back-home-container');
+      
+          function toggleBackHomeButton() {
+            // window.innerHeight: 視窗高度
+            // window.scrollY: 已捲動的距離
+            // document.body.offsetHeight: 整頁高度 (可換成 document.documentElement.scrollHeight)
+            // 若 (視窗高度 + 捲動距離) >= (頁面總高度 - 10px)，視為到底部
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 10) {
+              backHomeContainer.classList.add('show');
+            } else {
+              backHomeContainer.classList.remove('show');
+            }
+          }
+      
+          // 監聽捲動事件，動態顯示/隱藏按鈕
+          window.addEventListener('scroll', toggleBackHomeButton);
+      
+          // 初次載入時也執行一次，避免頁面過短或一開始就已在底部
+          toggleBackHomeButton();
+        });
+      </script>
+      
+</body>
+</html>
