@@ -133,7 +133,7 @@ section {
 .portfolio-item:hover {
     transform: scale(1.05);
     z-index: 1;
-    cursor: url('../pic/view_detail.png'), pointer;
+    cursor: url('../img/view_detail.png'), pointer;
 }
 
 .portfolio-item img {
@@ -147,7 +147,7 @@ section {
     position: relative;
     width: 100%;
     height: 100%; /* 填滿父容器 .portfolio-item 的 500px */
-    background: url('../pic/type.png') center/cover no-repeat;
+    background: url('../img/type.png') center/cover no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center; /* 垂直置中 */
@@ -219,11 +219,11 @@ section {
 }
 #Virtual_Museum{
     background: url('../gif/virtual_museum.png') center/cover no-repeat;
-    cursor: url('../pic/coming_soon.png'), pointer;
+    cursor: url('../img/coming_soon.png'), pointer;
 }
 #BOX{
     background: url('../gif/box.png') center/cover no-repeat;
-    cursor: url('../pic/coming_soon.png'), pointer;
+    cursor: url('../img/coming_soon.png'), pointer;
 }
 .work-hover-content h3 {
     font-family: "SweiSpringSugarCJKtc", sans-serif; 
